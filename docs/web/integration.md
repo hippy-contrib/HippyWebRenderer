@@ -72,12 +72,8 @@ npm install -S @hippy/web-renderer
 在入口文件内添加：
 
 ```javascript
-// 1. 导入 web renderer
+// 导入 web renderer
 import { HippyWebEngine, HippyWebModule } from '@hippy/web-renderer';
-
-// 2. 导入业务 bundle 的入口文件，需放在 web renderer 导入之后
-
-// 3. 创建 web engine，如果有业务自定义模块和组件，从此处传入
 ```
 
 ## 加载业务 Bundle
@@ -115,18 +111,12 @@ const engine = HippyWebEngine.create();
 import { HippyCallBack, HippyWebEngine, HippyWebModule, View } from '@hippy/web-renderer';
 // 导入业务 bundle 的入口文件，需放在 web renderer 导入之后
 import './main';
-
-
-const engine = HippyWebEngine.create();
 ```
 
-## 启动 WebRenderer
+## 创建 WebRender 实例
 
-加载完业务 bundle 后，调用相关 API 创建并启动 WebRenderer
-
-```js
-// 创建 web engine，如果有业务自定义模块和组件，从此处传入
-// 如果只使用官方模块和组件，则直接使用 const engine = HippyWebEngine.create() 即可
+```javascript
+// 创建 web engine，如果有业务自定义模块和组件，从此处传入，如果只使用官方模块和组件，则直接使用 const engine = HippyWebEngine.create() 即可
 const engine = HippyWebEngine.create({
   modules: {
     CustomCommonModule,
@@ -135,7 +125,13 @@ const engine = HippyWebEngine.create({
     CustomPageView,
   },
 });
+```
 
+## 启动 WebRenderer
+
+加载完业务 bundle 后，调用实例的 start 方法启动 WebRenderer
+
+```js
 // 启动 web renderer
 engine.start({
   // 挂载的 dom id
