@@ -151,4 +151,4 @@ engine.start({
 ```
 
 
->注：目前有一些业务，在 h5 场景复用 WebRenderer 渲染 Hippy 实现的组件。那么会有 h5 和 WebRenderer 共存的问题，因为 WebRenderer 覆盖了浏览器原生API：localstorage、fetch、cookie等，这可能会和一些标准的web库有冲突。 建议有这样需求的同学使用 iframe 或者微前端的方案来进行环境隔离。
+>注：目前有一些业务，在 h5 场景复用 WebRenderer 渲染 Hippy 实现的组件。那么会有 h5 和 WebRenderer 共存的问题，因为 WebRenderer 覆盖了浏览器原生API：localstorage、fetch、cookie等，这可能会和一些标准的web库有冲突。建议有这样需求的同学使用 iframe 或者微前端的方案来进行环境隔离。
