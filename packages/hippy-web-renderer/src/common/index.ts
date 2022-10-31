@@ -33,7 +33,7 @@ export function hasOwnProperty(obj: Object, name: string | number | symbol) {
 }
 
 export function setElementStyle(element: HTMLElement, object: any, animationProcess?:
-(key: string, value: any, element: HTMLElement) => void) {
+  (key: string, value: any, element: HTMLElement) => void) {
   if (object === null) return;
   const shadowData: any = {};
   const shadowTextData: any = {};
@@ -50,7 +50,7 @@ export function setElementStyle(element: HTMLElement, object: any, animationProc
       shadowTextData[key] = object[key];
       continue;
     }
-    if (isColor(key)) {
+    if (isColor(key) && !isNaN(object[key])) {
       const newValue = convertHexToRgba(object[key]);
       styleUpdateWithCheck(element, key, newValue);
       continue;
